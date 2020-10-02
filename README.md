@@ -11,23 +11,29 @@ Repositório destinado para os testes automatizados de API utilizando SuperTest.
 
 #### Atenção: É necessário que a máquina esteja com todas as dependencias instaladas:
 
-* Entrar na raíz do projeto `/desafioCortex` onde existe o arquivo `package.json`
+* Entrar na raíz do projeto `desafioCortex` onde existe o arquivo `package.json`
 * Usar o comando:
 ```npm install``` 
 
 
 ## Rodando os testes localmente com mocha
 
-* Entrar na pasta specs do projeto `/desafioCortex/specs`
+* Entrar na pasta specs do projeto `desafioCortex/specs`
 
 * Executar o comando `mocha *.js` para executar todos testes
 
 
 ## Rodando os testes com report
 
-* Entrar na raíz do projeto `/desafioCortex`
+* Entrar na raíz do projeto `desafioCortex`
 * Usar o comando:
 ```npm run test```
+
+
+## Visualizar o report
+
+* Entrar na pasta `desafioCortex/reports` e abrir o arquivo  `index.html`
+
 
 ## Resumindo o projeto
 
