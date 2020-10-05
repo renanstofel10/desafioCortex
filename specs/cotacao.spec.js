@@ -17,7 +17,7 @@ describe('Cotação - Validação por dataCotacao', function () {
     request(url)
     .get("/CotacaoDolarDia(dataCotacao='10-01-2020')")
     .end((err, res) => {
-      if (err != null) { addReport(this, err) } else { addReport(this, res.body)};
+      if (err == null) { addReport(this, res.body) };
       expect(200).to.be.equal(res.statusCode);
       Joi.validate(res.body.value, Joi.array().items(schemaCotacao), {
         abortEarly: false
@@ -30,7 +30,7 @@ describe('Cotação - Validação por dataCotacao', function () {
     request(url)
     .get("/CotacaoDolarDia(dataCotacao='10-10-2050')")
     .end((err, res) => {
-      if (err != null) { addReport(this, err) } else { addReport(this, res.error)};
+      if (err == null) { addReport(this, res.error) };
       expect(200).to.be.equal(res.statusCode);
       expect([]).to.eql(res.body.value);
       done();
@@ -41,7 +41,7 @@ describe('Cotação - Validação por dataCotacao', function () {
     request(url)
     .get("/CotacaoDolarDia(dataCotacao='10-32-2020')")
     .end((err, res) => {
-      if (err != null) { addReport(this, err) } else { addReport(this, res.error)};
+      if (err == null) { addReport(this, res.error) };
       expect(500).to.be.equal(res.statusCode);
       done();
     })
@@ -51,7 +51,7 @@ describe('Cotação - Validação por dataCotacao', function () {
     request(url)
     .get("/CotacaoDolarDia(dataCotacao='13-01-2020')")
     .end((err, res) => {
-      if (err != null) { addReport(this, err) } else { addReport(this, res.error)};
+      if (err == null) { addReport(this, res.error)};
       expect(500).to.be.equal(res.statusCode);
       done();
     })
@@ -61,7 +61,7 @@ describe('Cotação - Validação por dataCotacao', function () {
     request(url)
     .get("/CotacaoDolarDia(dataCotacao='10-01-AAAA')")
     .end((err, res) => {
-      if (err != null) { addReport(this, err) } else { addReport(this, res.error)};
+      if (err == null) { addReport(this, res.error) };
       expect(500).to.be.equal(res.statusCode);
       done();
     })
@@ -75,7 +75,7 @@ describe('Cotação - Validação por período <DataInicial> <DataFinal>', funct
     request(url)
     .get("/CotacaoDolarPeriodo(dataInicial='09-01-2020',dataFinalCotacao='10-01-2020')")
     .end((err, res) => {
-      if (err != null) { addReport(this, err) } else { addReport(this, res.body)};
+      if (err == null) { addReport(this, res.body) };
       expect(200).to.be.equal(res.statusCode);
       Joi.validate(res.body.value, Joi.array().items(schemaCotacao), {
         abortEarly: false
@@ -88,7 +88,7 @@ describe('Cotação - Validação por período <DataInicial> <DataFinal>', funct
     request(url)
     .get("/CotacaoDolarPeriodo(dataInicial='09-01-2040',dataFinalCotacao='10-01-2040')")
     .end((err, res) => {
-      if (err != null) { addReport(this, err) } else { addReport(this, res.body)};
+      if (err == null) { addReport(this, res.body) };
       expect(200).to.be.equal(res.statusCode);
       expect([]).to.eql(res.body.value);
       done();
@@ -99,7 +99,7 @@ describe('Cotação - Validação por período <DataInicial> <DataFinal>', funct
     request(url)
     .get("/CotacaoDolarPeriodo(dataInicial='09-01-2020',dataFinalCotacao='08-01-2020')")
     .end((err, res) => {
-      if (err != null) { addReport(this, err) } else { addReport(this, res.body)};
+      if (err == null) { addReport(this, res.body) };
       expect(200).to.be.equal(res.statusCode);
       expect([]).to.eql(res.body.value);
       done();
@@ -110,7 +110,7 @@ describe('Cotação - Validação por período <DataInicial> <DataFinal>', funct
     request(url)
     .get("/CotacaoDolarPeriodo(dataInicial='09-32-2020',dataFinalCotacao='10-01-2020')")
     .end((err, res) => {
-      if (err != null) { addReport(this, err) } else { addReport(this, res.error)};
+      if (err == null) { addReport(this, res.error) };
       expect(500).to.be.equal(res.statusCode);
       done();
     });
@@ -120,7 +120,7 @@ describe('Cotação - Validação por período <DataInicial> <DataFinal>', funct
     request(url)
     .get("/CotacaoDolarPeriodo(dataInicial='13-01-2020',dataFinalCotacao='10-01-2020')")
     .end((err, res) => {
-      if (err != null) { addReport(this, err) } else { addReport(this, res.error)};
+      if (err == null) { addReport(this, res.error) };
       expect(500).to.be.equal(res.statusCode);
       done();
     });
@@ -130,7 +130,7 @@ describe('Cotação - Validação por período <DataInicial> <DataFinal>', funct
     request(url)
     .get("/CotacaoDolarPeriodo(dataInicial='09-01-AAAA',dataFinalCotacao='10-01-2020')")
     .end((err, res) => {
-      if (err != null) { addReport(this, err) } else { addReport(this, res.error)};
+      if (err == null) { addReport(this, res.error) };
       expect(500).to.be.equal(res.statusCode);
       done();
     });
@@ -140,7 +140,7 @@ describe('Cotação - Validação por período <DataInicial> <DataFinal>', funct
     request(url)
     .get("/CotacaoDolarPeriodo(dataInicial='09-01-2020',dataFinalCotacao='10-32-2020')")
     .end((err, res) => {
-      if (err != null) { addReport(this, err) } else { addReport(this, res.error)};
+      if (err == null) { addReport(this, res.error) };
       expect(500).to.be.equal(res.statusCode);
       done();
     });
@@ -150,7 +150,7 @@ describe('Cotação - Validação por período <DataInicial> <DataFinal>', funct
     request(url)
     .get("/CotacaoDolarPeriodo(dataInicial='09-01-2020',dataFinalCotacao='13-01-2020')")
     .end((err, res) => {
-      if (err != null) { addReport(this, err) } else { addReport(this, res.error)};
+      if (err == null) { addReport(this, res.error) };
       expect(500).to.be.equal(res.statusCode);
       done();
     });
@@ -160,7 +160,7 @@ describe('Cotação - Validação por período <DataInicial> <DataFinal>', funct
     request(url)
     .get("/CotacaoDolarPeriodo(dataInicial='09-01-2020',dataFinalCotacao='10-01-AAAA')")
     .end((err, res) => {
-      if (err != null) { addReport(this, err) } else { addReport(this, res.error)};
+      if (err == null) { addReport(this, res.error) };
       expect(500).to.be.equal(res.statusCode);
       done();
     });
